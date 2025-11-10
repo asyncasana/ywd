@@ -56,11 +56,8 @@ export const metadata: Metadata = {
     images: [siteConfig.ogImage],
     creator: "@yogawithdash",
   },
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-  },
+  // Icons are automatically handled by Next.js App Router
+  // Files in /src/app/ directory: icon.png, apple-icon.png
   manifest: "/site.webmanifest",
 };
 
