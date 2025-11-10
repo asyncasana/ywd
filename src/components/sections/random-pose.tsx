@@ -20,7 +20,37 @@ export function RandomPose() {
   const { currentItem: randomPose, getRandomItem } = useRandom(poses);
   const prefersReducedMotion = usePrefersReducedMotion();
 
-  if (!randomPose) return null;
+  // Show loading state until random pose is selected on client
+  if (!randomPose) {
+    return (
+      <Section className="bg-muted/20">
+        <Container>
+          <div className="text-center space-y-12">
+            <div className="space-y-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+                Start where ever you are.
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
+                Not sure where to begin? Let the practice choose you. Discover a
+                randomly selected pose to explore today.
+              </p>
+            </div>
+            <div className="max-w-4xl mx-auto">
+              <Card className="p-8">
+                <div className="text-center space-y-6">
+                  <div className="animate-pulse space-y-4">
+                    <div className="h-8 bg-muted rounded mx-auto w-48"></div>
+                    <div className="h-6 bg-muted rounded mx-auto w-32"></div>
+                    <div className="w-48 h-48 bg-muted rounded-full mx-auto"></div>
+                  </div>
+                </div>
+              </Card>
+            </div>
+          </div>
+        </Container>
+      </Section>
+    );
+  }
 
   return (
     <Section className="bg-muted/20">

@@ -3,7 +3,9 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { User } from "lucide-react";
 import { Container } from "@/components/ui/container";
+import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./theme-toggle";
 import { MobileNav } from "./mobile-nav";
 import { siteConfig } from "@/lib/site-config";
@@ -62,6 +64,17 @@ export function SiteHeader() {
 
           {/* Right side actions */}
           <div className="flex items-center space-x-2">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="h-10 w-10 hidden lg:flex"
+              asChild
+            >
+              <Link href="/profile">
+                <User className="h-4 w-4" />
+                <span className="sr-only">Profile</span>
+              </Link>
+            </Button>
             <ThemeToggle />
             <MobileNav />
           </div>
