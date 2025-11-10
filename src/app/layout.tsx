@@ -32,6 +32,7 @@ export const metadata: Metadata = {
     },
   ],
   creator: "Dash",
+  metadataBase: new URL(siteConfig.url),
   openGraph: {
     type: "website",
     locale: "en_GB",
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     images: [
       {
-        url: `${siteConfig.url}${siteConfig.ogImage}`,
+        url: siteConfig.ogImage,
         width: 1200,
         height: 630,
         alt: siteConfig.name,
@@ -52,7 +53,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.name,
     description: siteConfig.description,
-    images: [`${siteConfig.url}${siteConfig.ogImage}`],
+    images: [siteConfig.ogImage],
     creator: "@yogawithdash",
   },
   icons: {
