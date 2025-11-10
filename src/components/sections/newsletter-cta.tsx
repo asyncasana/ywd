@@ -94,7 +94,7 @@ export function NewsletterCTA() {
 
             {message && (
               <p
-                className={`text-sm ${message.includes("Thank you") ? "text-green-600" : "text-red-600"}`}
+                className={`text-sm ${message.includes("Thank you") ? "text-yellow-600" : "text-red-600"}`}
               >
                 {message}
               </p>

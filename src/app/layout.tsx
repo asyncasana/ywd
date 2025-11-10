@@ -68,6 +68,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-GB" suppressHydrationWarning>
+      <head>
+        <meta name="theme-color" content="#fefefe" />
+        <meta
+          name="theme-color"
+          content="#171717"
+          media="(prefers-color-scheme: dark)"
+        />
+      </head>
       <body className={`${inter.variable} font-sans antialiased`}>
         <ThemeProvider
           attribute="class"
