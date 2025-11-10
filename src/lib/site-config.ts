@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "YWD - Yoga With Dash",
   description: "Embody calm, strength & presence. Move, breathe, and grow – on your mat and beyond.",
   url: "https://yogawithdash.com",
-  ogImage: "https://yogawithdash.com/og.jpg",
+  ogImage: "/og.png", // Will fallback to /og.svg until you upload og.png
   links: {
     twitter: "https://twitter.com/yogawithdash",
     instagram: "https://instagram.com/yogawithdash",

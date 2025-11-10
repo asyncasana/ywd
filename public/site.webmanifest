@@ -1,0 +1,22 @@
+{
+  "name": "YWD - Yoga With Dash",
+  "short_name": "YWD",
+  "description": "Embody calm, strength & presence. Move, breathe, and grow – on your mat and beyond.",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#b8860b",
+  "background_color": "#fefefe",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/"
+}
