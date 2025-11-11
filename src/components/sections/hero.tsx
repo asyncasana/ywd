@@ -22,10 +22,9 @@ export function Hero() {
         loop
         muted
         playsInline
-        poster="/hero-bg-poster.jpg"
         aria-hidden="true"
       >
-        <source src="https://www.pexels.com/download/video/27857022/" type="video/mp4" />
+        <source src="https://res.cloudinary.com/dr0e02ntf/video/upload/v1762875783/hero-bg-small_b0tj3b.mp4" type="video/mp4" />
         {/* If video is not supported, fallback to plain background via CSS */}
       </video>
       {/* Overlay for light/dark mode */}
