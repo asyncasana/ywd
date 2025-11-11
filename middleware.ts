@@ -3,15 +3,15 @@ import type { NextRequest } from "next/server";
 
 /**
  * Maintenance Mode Middleware
- * 
+ *
  * This middleware implements a "Coming Soon" gate for the site during construction.
- * 
+ *
  * HOW IT WORKS:
  * - Set MAINTENANCE_MODE=1 in environment variables to enable the gate
  * - All visitors are redirected to /coming-soon
  * - Admins can authenticate with Basic Auth (BASIC_AUTH_USER and BASIC_AUTH_PASS)
  * - Once authenticated, a secure cookie is set to bypass future auth prompts
- * 
+ *
  * TO DISABLE:
  * - Remove or set MAINTENANCE_MODE=0 in your environment variables
  * - Or delete this middleware.ts file entirely
@@ -73,22 +73,19 @@ export function middleware(request: NextRequest) {
           maxAge: 60 * 60 * 24 * 7, // 7 days
         });
         return response;
+      } else {
+        // Invalid credentials - redirect to coming soon instead of showing error
+        const url = request.nextUrl.clone();
+        url.pathname = "/coming-soon";
+        return NextResponse.redirect(url);
       }
     }
   }
 
-  // If trying to access protected route without auth, either prompt or redirect
-  if (pathname !== "/coming-soon") {
-    // For browsers, prompt with Basic Auth
-    return new NextResponse("Authentication required", {
-      status: 401,
-      headers: {
-        "WWW-Authenticate": 'Basic realm="Yoga With Dash - Admin Access"',
-      },
-    });
-  }
-
-  return NextResponse.next();
+  // Regular visitors without auth header: redirect to coming soon page
+  const url = request.nextUrl.clone();
+  url.pathname = "/coming-soon";
+  return NextResponse.redirect(url);
 }
 
 /**
