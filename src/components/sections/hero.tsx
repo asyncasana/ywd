@@ -24,7 +24,7 @@ export function Hero() {
         playsInline
         aria-hidden="true"
       >
-        <source src="https://res.cloudinary.com/dr0e02ntf/video/upload/v1762875783/hero-bg-small_b0tj3b.mp4" type="video/mp4" />
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
         {/* If video is not supported, fallback to plain background via CSS */}
       </video>
       {/* Overlay for light/dark mode */}
