@@ -10,7 +10,7 @@
   <rect x="80" y="80" width="1040" height="470" fill="rgba(255,255,255,0.9)" rx="24"/>
   
   <!-- Logo area -->
-  <rect x="120" y="120" width="200" height="60" fill="#b8860b" rx="12"/>
+  <rect x="120" y="120" width="200" height="60" fill="#a396c8" rx="12"/>
   <text x="220" y="160" font-family="system-ui, sans-serif" font-size="28" font-weight="600" text-anchor="middle" fill="white">YWD</text>
   
   <!-- Main heading -->
@@ -23,18 +23,18 @@
   <text x="600" y="380" font-family="system-ui, sans-serif" font-size="24" font-weight="400" text-anchor="middle" fill="#737373">Move, breathe, and grow – on your mat and beyond.</text>
   
   <!-- Website URL -->
-  <text x="600" y="480" font-family="system-ui, sans-serif" font-size="20" font-weight="500" text-anchor="middle" fill="#b8860b">yogawithdash.com</text>
+  <text x="600" y="480" font-family="system-ui, sans-serif" font-size="20" font-weight="500" text-anchor="middle" fill="#a396c8">yogawithdash.com</text>
   
   <!-- Decorative elements -->
-  <circle cx="1000" cy="150" r="40" fill="#b8860b" opacity="0.1"/>
-  <circle cx="1080" cy="200" r="20" fill="#b8860b" opacity="0.2"/>
-  <circle cx="150" cy="450" r="30" fill="#b8860b" opacity="0.15"/>
+  <circle cx="1000" cy="150" r="40" fill="#a396c8" opacity="0.1"/>
+  <circle cx="1080" cy="200" r="20" fill="#a396c8" opacity="0.2"/>
+  <circle cx="150" cy="450" r="30" fill="#a396c8" opacity="0.15"/>
   
   <!-- Gradient definition -->
   <defs>
     <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#f5f5f4;stop-opacity:0.3" />
-      <stop offset="100%" style="stop-color:#b8860b;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#a396c8;stop-opacity:0.1" />
     </linearGradient>
   </defs>
 </svg>
