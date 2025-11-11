@@ -17,7 +17,7 @@ export function AboutPreview() {
   return (
     <Section>
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={prefersReducedMotion ? {} : { opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}

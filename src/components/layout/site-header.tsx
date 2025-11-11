@@ -21,10 +21,8 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full transition-all duration-300",
-        isScrolled
-          ? "bg-background/80 backdrop-blur-lg border-b shadow-sm"
-          : "bg-transparent"
+        "sticky top-0 z-50 w-full transition-all duration-300 bg-white/40 dark:bg-zinc-900/40 backdrop-blur-lg",
+        isScrolled && "shadow-sm"
       )}
     >
       <Container>

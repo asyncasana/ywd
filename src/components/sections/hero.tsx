@@ -14,7 +14,7 @@ export function Hero() {
   const prefersReducedMotion = usePrefersReducedMotion();
 
   return (
-    <Section className="relative min-h-[90vh] flex items-center overflow-hidden p-0">
+    <Section className="relative min-h-[90vh] flex items-center p-0">
       {/* Video background with fallback */}
       <video
         className="absolute inset-0 w-full h-full object-cover z-0"
@@ -24,7 +24,10 @@ export function Hero() {
         playsInline
         aria-hidden="true"
       >
-        <source src="https://res.cloudinary.com/dr0e02ntf/video/upload/v1762875783/hero-bg-small_b0tj3b.mp4" type="video/mp4" />
+        <source
+          src="https://res.cloudinary.com/dr0e02ntf/video/upload/v1762875783/hero-bg-small_b0tj3b.mp4"
+          type="video/mp4"
+        />
         {/* If video is not supported, fallback to plain background via CSS */}
       </video>
       {/* Overlay for light/dark mode */}
