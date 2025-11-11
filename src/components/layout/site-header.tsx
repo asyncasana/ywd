@@ -34,16 +34,16 @@ export function SiteHeader() {
             <Image
               src="/logo-light.svg"
               alt="YWD - Yoga With Dash"
-              width={120}
-              height={40}
+              width={100}
+              height={20}
               className="dark:hidden"
               priority
             />
             <Image
               src="/logo-dark.svg"
               alt="YWD - Yoga With Dash"
-              width={120}
-              height={40}
+              width={100}
+              height={20}
               className="hidden dark:block"
               priority
             />

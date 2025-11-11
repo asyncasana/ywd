@@ -14,8 +14,26 @@ export function Hero() {
   const prefersReducedMotion = usePrefersReducedMotion();
 
   return (
-    <Section className="min-h-[90vh] flex items-center bg-gradient-to-b from-muted/20 to-background">
-      <Container>
+    <Section className="relative min-h-[90vh] flex items-center overflow-hidden p-0">
+      {/* Video background with fallback */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover z-0"
+        autoPlay
+        loop
+        muted
+        playsInline
+        poster="/hero-bg-poster.jpg"
+        aria-hidden="true"
+      >
+        <source src="/hero-bg.webm" type="video/webm" />
+        <source src="/hero-bg-small.mp4" type="video/mp4" />
+        {/* If video is not supported, fallback to plain background via CSS */}
+      </video>
+      {/* Overlay for light/dark mode */}
+      <div className="absolute inset-0 z-10 pointer-events-none">
+        <div className="block w-full h-full bg-white/60 dark:bg-black/60" />
+      </div>
+      <Container className="relative z-20">
         <div className="text-center space-y-8">
           <motion.div
             initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
