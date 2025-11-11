@@ -22,7 +22,7 @@ export function Hero() {
         loop
         muted
         playsInline
-        poster="/hero-bg-poster.jpg"
+        // poster="/hero-bg-poster.jpg"
         aria-hidden="true"
       >
         <source src="/hero-bg.webm" type="video/webm" />
