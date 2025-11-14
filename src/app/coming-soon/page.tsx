@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { Container } from "@/components/ui/container";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
@@ -21,6 +21,8 @@ export default function ComingSoonPage() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [logoTaps, setLogoTaps] = useState(0);
+  const [showFallback, setShowFallback] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const currentYear = new Date().getFullYear();
 
   // Listen for admin shortcut (Ctrl/Cmd + Shift + A)
@@ -46,6 +48,36 @@ export default function ComingSoonPage() {
     const timer = setTimeout(() => setLogoTaps(0), 1000);
     return () => clearTimeout(timer);
   }, [logoTaps]);
+
+  // Handle video autoplay detection
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const playPromise = video.play();
+
+    if (playPromise !== undefined) {
+      playPromise
+        .then(() => {
+          setShowFallback(false);
+        })
+        .catch((error) => {
+          console.log("Video autoplay prevented:", error);
+          setShowFallback(true);
+        });
+    }
+
+    const handleSuspend = () => setShowFallback(true);
+    const handleError = () => setShowFallback(true);
+
+    video.addEventListener("suspend", handleSuspend);
+    video.addEventListener("error", handleError);
+
+    return () => {
+      video.removeEventListener("suspend", handleSuspend);
+      video.removeEventListener("error", handleError);
+    };
+  }, []);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -76,13 +108,26 @@ export default function ComingSoonPage() {
 
   return (
     <div className="relative flex min-h-screen flex-col">
+      {/* Fallback background - gradient when video can't play */}
+      {showFallback && (
+        <div
+          className="absolute inset-0 w-full h-full bg-gradient-to-br from-zinc-100 via-zinc-50 to-zinc-200 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900"
+          aria-hidden="true"
+        />
+      )}
+
       {/* Video Background */}
       <video
+        ref={videoRef}
         autoPlay
         loop
         muted
         playsInline
-        className="absolute inset-0 h-full w-full object-cover"
+        preload="auto"
+        disablePictureInPicture
+        controlsList="nodownload nofullscreen noremoteplayback"
+        style={{ pointerEvents: "none" }}
+        className={`absolute inset-0 h-full w-full object-cover ${showFallback ? "hidden" : ""}`}
       >
         <source
           src="https://res.cloudinary.com/dr0e02ntf/video/upload/v1762875783/hero-bg-small_b0tj3b.mp4"
